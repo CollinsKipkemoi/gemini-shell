@@ -16,13 +16,16 @@ class GeminiShell:
 
     def chat(self):
         print("Welcome to Gemini Shell!")
-        while True:
-            try:
-                question = input("User: ")
-                response = self.model.generate_content(contents=question)
-                print(f"AI: {response.text}")
-            except Exception as e:
-                print(f"An error occurred: {e}")
+        try:
+            while True:
+                try:
+                    question = input("User: ")
+                    response = self.model.generate_content(contents=question)
+                    print(f"AI: {response.text}")
+                except Exception as e:
+                    print(f"An error occurred: {e}")
+        except KeyboardInterrupt:
+            print("Goodbye! Thanks for using Gemini Shell!")
 
 
 if __name__ == "__main__":
